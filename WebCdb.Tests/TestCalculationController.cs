@@ -17,7 +17,7 @@ namespace WebCdb.Tests
     public class TestCalculationController
     {
         [TestMethod]
-        public void GetAllProducts_ShouldReturnCorrectValueForSixMonths()
+        public void Calculate_ShouldReturnCorrectValueForSixMonths()
         {
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
@@ -34,7 +34,7 @@ namespace WebCdb.Tests
         }
 
         [TestMethod]
-        public void GetAllProducts_ShouldReturnCorrectValueForTwelveMonths()
+        public void Calculate_ShouldReturnCorrectValueForTwelveMonths()
         {
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
@@ -51,7 +51,7 @@ namespace WebCdb.Tests
         }
 
         [TestMethod]
-        public void GetAllProducts_ShouldReturnCorrectValueForTwentyFourMonths()
+        public void Calculate_ShouldReturnCorrectValueForTwentyFourMonths()
         {
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
@@ -68,7 +68,7 @@ namespace WebCdb.Tests
         }
 
         [TestMethod]
-        public void GetAllProducts_ShouldReturnCorrectValueForMoreThanTwentyFourMonths()
+        public void Calculate_ShouldReturnCorrectValueForMoreThanTwentyFourMonths()
         {
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
@@ -82,6 +82,23 @@ namespace WebCdb.Tests
             var result = controller.Calculate(request) as OkNegotiatedContentResult<CdbResponse>;
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Content.rawValue > 0);
+        }
+
+        [TestMethod]
+        public void Calculate_ShouldReturnBadRequest()
+        {
+            ICalculationService calculationService = new CalculationService();
+            var request = new CdbRequest()
+            {
+                value = 100.00M,
+                period = 1
+            };
+
+            var controller = new CalculationController(calculationService);
+            controller.ModelState.AddModelError("BadRequest", "BadRequest error test!");
+            var result = (BadRequestErrorMessageResult)controller.Calculate(request);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result.Message, "Value should be a positive number and period should be an integer greater than 1!");
         }
     }
 }
