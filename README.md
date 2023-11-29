@@ -1,8 +1,10 @@
-# WebCdbApp
+# WebCdb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+This project was generated with:
+- [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+- [.NET Framework](https://dotnet.microsoft.com/pt-br/download/dotnet-framework/net472) version 4.7.2.
 
-## Development server
+## App server
 
 On WebCdb.App, run `npm start` for a dev server. This will automatically open a browser window on http://localhost:4200.
 
