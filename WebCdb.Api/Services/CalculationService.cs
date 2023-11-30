@@ -8,18 +8,18 @@ namespace WebCdb.Services
     {
         public CdbResponse CalculateCdb(CdbRequest request)
         {
-            decimal rawValue = request.value;
-            decimal initialValue = request.value;
+            decimal rawValue = request.Value;
+            decimal initialValue = request.Value;
 
-            for (int i = 1; i <= request.period; i++)
+            for (int i = 1; i <= request.Period; i++)
             {
                 rawValue = CalculateByPeriod(rawValue);
             }
 
             return new CdbResponse()
             {
-                rawValue = rawValue,
-                liquidValue = CalculateLiquidValue(rawValue, initialValue, request.period)
+                RawValue = rawValue,
+                LiquidValue = CalculateLiquidValue(rawValue, initialValue, request.Period)
             };
         }
 

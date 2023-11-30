@@ -5,8 +5,8 @@ namespace WebCdb.Models.Response
     public class CdbResponse
     {
         [JsonProperty("rawValue")]
-        public decimal rawValue { get; set; }
+        public decimal RawValue { get; set; }
         [JsonProperty("liquidValue")]
-        public decimal liquidValue { get; set; }
+        public decimal LiquidValue { get; set; }
     }
 }

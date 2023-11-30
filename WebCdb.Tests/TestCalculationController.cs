@@ -17,15 +17,15 @@ namespace WebCdb.Tests
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
             {
-                value = 100.00M,
-                period = 2
+                Value = 100.00M,
+                Period = 2
             };
 
             var controller = new CalculationController(calculationService);
 
             var result = controller.Calculate(request) as OkNegotiatedContentResult<CdbResponse>;
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Content.rawValue > 0);
+            Assert.IsTrue(result.Content.RawValue > 0);
         }
 
         [TestMethod]
@@ -34,15 +34,15 @@ namespace WebCdb.Tests
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
             {
-                value = 100.00M,
-                period = 12
+                Value = 100.00M,
+                Period = 12
             };
 
             var controller = new CalculationController(calculationService);
 
             var result = controller.Calculate(request) as OkNegotiatedContentResult<CdbResponse>;
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Content.rawValue > 0);
+            Assert.IsTrue(result.Content.RawValue > 0);
         }
 
         [TestMethod]
@@ -51,15 +51,15 @@ namespace WebCdb.Tests
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
             {
-                value = 100.00M,
-                period = 24
+                Value = 100.00M,
+                Period = 24
             };
 
             var controller = new CalculationController(calculationService);
 
             var result = controller.Calculate(request) as OkNegotiatedContentResult<CdbResponse>;
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Content.rawValue > 0);
+            Assert.IsTrue(result.Content.RawValue > 0);
         }
 
         [TestMethod]
@@ -68,15 +68,15 @@ namespace WebCdb.Tests
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
             {
-                value = 100.00M,
-                period = 36
+                Value = 100.00M,
+                Period = 36
             };
 
             var controller = new CalculationController(calculationService);
 
             var result = controller.Calculate(request) as OkNegotiatedContentResult<CdbResponse>;
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Content.rawValue > 0);
+            Assert.IsTrue(result.Content.RawValue > 0);
         }
 
         [TestMethod]
@@ -85,8 +85,8 @@ namespace WebCdb.Tests
             ICalculationService calculationService = new CalculationService();
             var request = new CdbRequest()
             {
-                value = 100.00M,
-                period = 1
+                Value = 100.00M,
+                Period = 1
             };
 
             var controller = new CalculationController(calculationService);

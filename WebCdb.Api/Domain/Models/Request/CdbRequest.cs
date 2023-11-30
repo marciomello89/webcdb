@@ -7,9 +7,9 @@ namespace WebCdb.Models.Request
     {
         [JsonProperty("value")]
         [Min(0.01)]
-        public decimal value { get; set; }
+        public decimal Value { get; set; }
         [JsonProperty("period")]
         [Min(2)]
-        public int period { get; set; }
+        public int Period { get; set; }
     }
 }
