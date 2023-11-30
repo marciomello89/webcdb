@@ -13,7 +13,7 @@ namespace WebCdb.Services
 
             for (int i = 1; i <= request.period; i++)
             {
-                rawValue = CalculateByPeriod(rawValue, i);
+                rawValue = CalculateByPeriod(rawValue);
             }
 
             return new CdbResponse()
@@ -23,7 +23,7 @@ namespace WebCdb.Services
             };
         }
 
-        private decimal CalculateByPeriod(decimal rawValue, int period)
+        private decimal CalculateByPeriod(decimal rawValue)
         {
             decimal fixedValue = 0.009M * 1.08M;
 
@@ -34,9 +34,9 @@ namespace WebCdb.Services
         {
             if (period <= 6)
                 return 0.225M;
-            else if (period > 6 && period <= 12)
+            else if (period <= 12)
                 return 0.2M;
-            else if (period > 12 && period <= 24)
+            else if (period <= 24)
                 return 0.175M;
             else
                 return 0.15M;

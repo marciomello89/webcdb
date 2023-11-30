@@ -1,9 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http.Results;
 using WebCdb.Controllers;
 using WebCdb.Domain.IServices;
@@ -98,7 +93,7 @@ namespace WebCdb.Tests
             controller.ModelState.AddModelError("BadRequest", "BadRequest error test!");
             var result = (BadRequestErrorMessageResult)controller.Calculate(request);
             Assert.IsNotNull(result);
-            Assert.AreEqual(result.Message, "Value should be a positive number and period should be an integer greater than 1!");
+            Assert.AreEqual("Value should be a positive number and period should be an integer greater than 1!", result.Message);
         }
     }
 }
